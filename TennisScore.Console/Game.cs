@@ -54,6 +54,10 @@ public class Game
         {
             return Score.Advantage + " " + Player1.Name;
         }
+        if (Player2.Score == Score.Advantage && Player1.Score == Score.Forty)
+        {
+            return Score.Advantage + " " + Player2.Name;
+        }
 
         return Score.None.ToString();
     }
