@@ -77,11 +77,27 @@ namespace TennisScore.Test
         }
 
         [Test]
-        public void add_fifteen_love_to_score_board_when_player2_win_first_point()
+        public void add_love_fifteen_to_score_board_when_player2_win_first_point()
         {
             var expectedResult = new List<string>{
                 {"love-love"},
                 {"love-fifteen"},
+            };
+
+            _game.WinPoint("Player2");
+
+            var result = _game.GetScoreBoard();
+
+            result.Should().BeEquivalentTo(expectedResult);
+        }
+
+        [Test]
+        public void add_love_thirty_to_score_board_when_player2_win_second_point()
+        {
+            var expectedResult = new List<string>{
+                {"love-love"},
+                {"love-fifteen"},
+                {"love-thirty"},
             };
 
             _game.WinPoint("Player2");
