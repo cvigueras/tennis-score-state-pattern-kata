@@ -130,5 +130,17 @@ namespace TennisScore.Test
             scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
             scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
+
+        [Test]
+        public void get_deuce_when_player1_has_forty_and_player2_has_forty()
+        {
+            var expectedScorePlayer1 = Score.Deuce;
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);
+
+            var deuceScore = _game.HasDeuce();
+
+            deuceScore.Should().BeEquivalentTo(expectedScorePlayer1);
+        }
     }
 }

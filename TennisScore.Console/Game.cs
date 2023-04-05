@@ -37,4 +37,9 @@ public class Game
             Player2.Score++;
         }
     }
+
+    public object HasDeuce()
+    {
+        throw new NotImplementedException();
+    }
 }
