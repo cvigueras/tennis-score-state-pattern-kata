@@ -75,5 +75,20 @@ namespace TennisScore.Test
 
             result.Should().BeEquivalentTo(expectedResult);
         }
+
+        [Test]
+        public void add_fifteen_love_to_score_board_when_player2_win_first_point()
+        {
+            var expectedResult = new List<string>{
+                {"love-love"},
+                {"love-fifteen"},
+            };
+
+            _game.WinPoint();
+
+            var result = _game.GetScoreBoard();
+
+            result.Should().BeEquivalentTo(expectedResult);
+        }
     }
 }
