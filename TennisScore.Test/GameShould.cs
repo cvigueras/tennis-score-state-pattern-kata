@@ -107,5 +107,24 @@ namespace TennisScore.Test
 
             result.Should().BeEquivalentTo(expectedResult);
         }
+
+        [Test]
+        public void add_love_forty_to_score_board_when_player2_win_third_point()
+        {
+            var expectedResult = new List<string>{
+                {"love-love"},
+                {"love-fifteen"},
+                {"love-thirty"},
+                {"love-forty"},
+            };
+
+            _game.WinPoint("Player2");
+            _game.WinPoint("Player2");
+            _game.WinPoint("Player2");
+
+            var result = _game.GetScoreBoard();
+
+            result.Should().BeEquivalentTo(expectedResult);
+        }
     }
 }
