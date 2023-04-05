@@ -164,5 +164,23 @@ namespace TennisScore.Test
 
             scorePlayer1.Should().BeEquivalentTo(expectedScore);
         }
+
+        [Test]
+        public void get_advantage_for_player2_has_forty_and_win_point_and_player1_has_forty()
+        {
+            var expectedScore = Score.Advantage + " " + _game.Player2.Name;
+            
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player1);            
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player1);            
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);
+
+            var scorePlayer1 = _game.HasAdvantage();
+
+            scorePlayer1.Should().BeEquivalentTo(expectedScore);
+        }
     }
 }
