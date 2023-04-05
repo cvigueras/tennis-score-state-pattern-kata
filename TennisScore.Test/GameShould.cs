@@ -31,7 +31,7 @@ namespace TennisScore.Test
                 {"fifteen-love"},
             };
 
-            _game.WinPoint("Player1");
+            _game.WinPoint(Player.Create("Player1"));
 
             var result = _game.GetScoreBoard();
 
@@ -48,8 +48,8 @@ namespace TennisScore.Test
             };
 
             _game = new Game();
-            _game.WinPoint("Player1");
-            _game.WinPoint("Player1");
+            _game.WinPoint(Player.Create("Player1"));
+            _game.WinPoint(Player.Create("Player1"));
 
             var result = _game.GetScoreBoard();
 
@@ -67,9 +67,9 @@ namespace TennisScore.Test
             };
 
             _game = new Game();
-            _game.WinPoint("Player1");
-            _game.WinPoint("Player1");
-            _game.WinPoint("Player1");
+            _game.WinPoint(Player.Create("Player1"));
+            _game.WinPoint(Player.Create("Player1"));
+            _game.WinPoint(Player.Create("Player1"));
 
             var result = _game.GetScoreBoard();
 
@@ -84,7 +84,7 @@ namespace TennisScore.Test
                 {"love-fifteen"},
             };
 
-            _game.WinPoint("Player2");
+            _game.WinPoint(Player.Create("Player2"));
 
             var result = _game.GetScoreBoard();
 
@@ -100,8 +100,8 @@ namespace TennisScore.Test
                 {"love-thirty"},
             };
 
-            _game.WinPoint("Player2");
-            _game.WinPoint("Player2");
+            _game.WinPoint(Player.Create("Player2"));
+            _game.WinPoint(Player.Create("Player2"));
 
             var result = _game.GetScoreBoard();
 
@@ -118,9 +118,9 @@ namespace TennisScore.Test
                 {"love-forty"},
             };
 
-            _game.WinPoint("Player2");
-            _game.WinPoint("Player2");
-            _game.WinPoint("Player2");
+            _game.WinPoint(Player.Create("Player2"));
+            _game.WinPoint(Player.Create("Player2"));
+            _game.WinPoint(Player.Create("Player2"));
 
             var result = _game.GetScoreBoard();
 

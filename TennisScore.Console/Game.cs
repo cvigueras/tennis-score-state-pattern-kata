@@ -14,9 +14,9 @@ public class Game
         return _getScoreBoard;
     }
 
-    public void WinPoint(string player)
+    public void WinPoint(Player player)
     {
-        if (player == "Player1")
+        if (player.Value == "Player1")
         {
             if (_getScoreBoard.Count == 1)
             {
@@ -31,7 +31,7 @@ public class Game
                 _getScoreBoard.Add("forty-love");
             }
         }
-        else if (player == "Player2")
+        else if (player.Value == "Player2")
         {
             if (_getScoreBoard.Count == 1)
             {
