@@ -10,5 +10,4 @@ public enum Score
     Advantage,
     Winner,
     Deuce,
-    Game,
 }

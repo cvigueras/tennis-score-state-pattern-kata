@@ -4,13 +4,14 @@ public class Game
 {
     public readonly Player Player1;
     public readonly Player Player2;
-    private State _state = null;
+    private State _state;
 
     private Game(string namePlayer1, string namePlayer2, State state)
     {
         Player1 = Player.Create(namePlayer1);
         Player2 = Player.Create(namePlayer2);
-        TransitionTo(state);
+        _state = state;
+        _state.SetContext(this);
     }
 
     public void TransitionTo(State state)
@@ -31,39 +32,5 @@ public class Game
     public string GetScore()
     {
         return _state.GetScore();
-    }
-
-    public Enum GetScorePlayer1()
-    {
-        return Player1.Score;
-    }
-
-    public Enum GetScorePlayer2()
-    {
-        return Player2.Score;
-    }
-
-    public Enum HasDeuce()
-    {
-        if (Player1.Score == Score.Forty && Player1.Score == Player2.Score)
-        {
-            return Score.Deuce;
-        }
-
-        return Score.None;
-    }
-
-    public string HasAdvantage()
-    {
-        if (Player1.Score == Score.Advantage && Player2.Score == Score.Forty)
-        {
-            return Score.Advantage + " " + Player1.Name;
-        }
-        if (Player2.Score == Score.Advantage && Player1.Score == Score.Forty)
-        {
-            return Score.Advantage + " " + Player2.Name;
-        }
-
-        return Score.None.ToString();
     }
 }

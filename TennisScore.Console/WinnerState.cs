@@ -6,7 +6,7 @@ public class WinnerState : State
 
     public override string GetScore()
     {
-        if (Game.Player1.Score == Score.Winner)
+        if (Game!.Player1.Score == Score.Winner)
         {
             return Score.Winner + " " + Game.Player1.Name;
         }

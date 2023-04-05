@@ -5,7 +5,8 @@ public class InitState : State
     public override void WinPoint(Player player)
     {
         player.Score++;
-        if (Game.Player1.Score == Score.Forty && Game.Player1.Score == Game.Player2.Score)
+        if (Game!.Player1.Score == Score.Forty && 
+            Game.Player1.Score == Game.Player2.Score)
         {
             Game.TransitionTo(new DeuceState());
         }
@@ -13,6 +14,6 @@ public class InitState : State
 
     public override string GetScore()
     {
-        return Game.Player1.Score + "-" + Game.Player2.Score;
+        return Game!.Player1.Score + "-" + Game.Player2.Score;
     }
 }

@@ -7,17 +7,17 @@ public class AdvantageState : State
         player.Score++;
         if (player.Score == Score.Winner)
         {
-            Game.TransitionTo(new WinnerState());
+            Game!.TransitionTo(new WinnerState());
         }
         else
         {
-            Game.TransitionTo(new DeuceState());
+            Game!.TransitionTo(new DeuceState());
         }
     }
 
     public override string GetScore()
     {
-        if (Game.Player1.Score == Score.Advantage)
+        if (Game!.Player1.Score == Score.Advantage)
         {
             return Score.Advantage + " " + Game.Player1.Name;
         }
