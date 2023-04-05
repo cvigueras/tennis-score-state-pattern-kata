@@ -47,4 +47,14 @@ public class Game
 
         return Score.None;
     }
+
+    public string HasAdvantage()
+    {
+        if (Player1.Score == Score.Advantage && Player2.Score == Score.Forty)
+        {
+            return Score.Advantage + " " + Player1.Name;
+        }
+
+        return Score.None.ToString();
+    }
 }

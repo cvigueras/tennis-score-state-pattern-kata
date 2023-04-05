@@ -7,7 +7,7 @@ public enum Score
     Fifteen,
     Thirty,
     Forty,
-    Deuce,
     Advantage,
+    Deuce,
     Game,
 }
