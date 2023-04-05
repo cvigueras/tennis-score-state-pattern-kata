@@ -31,7 +31,7 @@ namespace TennisScore.Test
             };
 
             var game = new Game();
-            game.WinPoint("Player1");
+            game.WinPoint();
 
             var result = game.GetScoreBoard();
 
