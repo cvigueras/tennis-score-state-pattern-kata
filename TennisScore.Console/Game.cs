@@ -38,8 +38,13 @@ public class Game
         }
     }
 
-    public object HasDeuce()
+    public Enum HasDeuce()
     {
-        throw new NotImplementedException();
+        if (Player1.Score == Score.Forty && Player1.Score == Player2.Score)
+        {
+            return Score.Deuce;
+        }
+
+        return Score.None;
     }
 }

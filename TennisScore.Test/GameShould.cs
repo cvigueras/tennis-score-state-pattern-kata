@@ -136,6 +136,10 @@ namespace TennisScore.Test
         {
             var expectedScorePlayer1 = Score.Deuce;
             _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);            
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);            
+            _game.WinPoint(_game.Player1);
             _game.WinPoint(_game.Player2);
 
             var deuceScore = _game.HasDeuce();
