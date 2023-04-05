@@ -2,9 +2,12 @@ namespace TennisScore.Console;
 
 public class Player
 {
+    public Score Score;
+
     private Player(string player)
     {
-        Value = player;
+        Name = player;
+        Score = Score.Love;
     }
 
     public static Player Create(string player)
@@ -12,5 +15,5 @@ public class Player
         return new Player(player);
     }
 
-    public string Value { get; }
+    public string Name { get; }
 }

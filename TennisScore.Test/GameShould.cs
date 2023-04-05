@@ -10,121 +10,110 @@ namespace TennisScore.Test
         [SetUp]
         public void Setup()
         {
-            _game = Game.Create();
+            _game = Game.Create("Rafa Nadal","Carlos Alcaraz");
         }
 
         [Test]
         public void return_love_love_when_game_start()
         {
-            var expectedResult = new List<string> {"love-love"};
+            var expectedScorePlayer1 = Score.Love;
+            var expectedScorePlayer2 = Score.Love;
 
-            var result = _game.GetScoreBoard();
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
 
         [Test]
         public void add_fifteen_love_to_score_board_when_player1_win_first_point()
         {
-            var expectedResult = new List<string>{
-                {"love-love"},
-                {"fifteen-love"},
-            };
+            var expectedScorePlayer1 = Score.Fifteen;
+            var expectedScorePlayer2 = Score.Love;
+            _game.WinPoint(_game.Player1);
 
-            _game.WinPoint(Player.Create("Player1"));
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            var result = _game.GetScoreBoard();
-
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
 
         [Test]
         public void add_thirty_love_to_score_board_when_player1_win_second_point()
         {
-            var expectedResult = new List<string>{
-                {"love-love"},
-                {"fifteen-love"},
-                {"thirty-love"},
-            };
+            var expectedScorePlayer1 = Score.Thirty;
+            var expectedScorePlayer2 = Score.Love;
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player1);
 
-            _game = Game.Create();
-            _game.WinPoint(Player.Create("Player1"));
-            _game.WinPoint(Player.Create("Player1"));
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            var result = _game.GetScoreBoard();
-
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
 
         [Test]
         public void add_forty_love_to_score_board_when_player1_win_third_point()
         {
-            var expectedResult = new List<string>{
-                {"love-love"},
-                {"fifteen-love"},
-                {"thirty-love"},
-                {"forty-love"},
-            };
+            var expectedScorePlayer1 = Score.Forty;
+            var expectedScorePlayer2 = Score.Love;
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player1);
 
-            _game = Game.Create();
-            _game.WinPoint(Player.Create("Player1"));
-            _game.WinPoint(Player.Create("Player1"));
-            _game.WinPoint(Player.Create("Player1"));
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            var result = _game.GetScoreBoard();
-
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
 
         [Test]
         public void add_love_fifteen_to_score_board_when_player2_win_first_point()
         {
-            var expectedResult = new List<string>{
-                {"love-love"},
-                {"love-fifteen"},
-            };
+            var expectedScorePlayer1 = Score.Love;
+            var expectedScorePlayer2 = Score.Fifteen;
+            _game.WinPoint(_game.Player2);
 
-            _game.WinPoint(Player.Create("Player2"));
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            var result = _game.GetScoreBoard();
-
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
 
         [Test]
         public void add_love_thirty_to_score_board_when_player2_win_second_point()
         {
-            var expectedResult = new List<string>{
-                {"love-love"},
-                {"love-fifteen"},
-                {"love-thirty"},
-            };
+            var expectedScorePlayer1 = Score.Love;
+            var expectedScorePlayer2 = Score.Thirty;
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player2);
 
-            _game.WinPoint(Player.Create("Player2"));
-            _game.WinPoint(Player.Create("Player2"));
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            var result = _game.GetScoreBoard();
-
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
 
         [Test]
         public void add_love_forty_to_score_board_when_player2_win_third_point()
         {
-            var expectedResult = new List<string>{
-                {"love-love"},
-                {"love-fifteen"},
-                {"love-thirty"},
-                {"love-forty"},
-            };
+            var expectedScorePlayer1 = Score.Love;
+            var expectedScorePlayer2 = Score.Forty;
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player2);
 
-            _game.WinPoint(Player.Create("Player2"));
-            _game.WinPoint(Player.Create("Player2"));
-            _game.WinPoint(Player.Create("Player2"));
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
 
-            var result = _game.GetScoreBoard();
-
-            result.Should().BeEquivalentTo(expectedResult);
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
     }
 }

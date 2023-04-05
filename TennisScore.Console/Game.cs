@@ -2,54 +2,39 @@ namespace TennisScore.Console;
 
 public class Game
 {
-    private readonly List<string> _getScoreBoard;
+    public readonly Player Player1;
+    public readonly Player Player2;
 
-    private Game()
+    private Game(string namePlayer1, string namePlayer2)
     {
-        _getScoreBoard = new List<string> { "love-love" };
+        Player1 = Player.Create(namePlayer1);
+        Player2 = Player.Create(namePlayer2);
     }
 
-    public static Game Create()
+    public static Game Create(string namePlayer1, string namePlayer2)
     {
-        return new Game();
+        return new Game(namePlayer1,namePlayer2);
     }
 
-    public List<string> GetScoreBoard()
+    public Enum GetScorePlayer1()
     {
-        return _getScoreBoard;
+        return Player1.Score;
+    }
+
+    public Enum GetScorePlayer2()
+    {
+        return Player2.Score;
     }
 
     public void WinPoint(Player player)
     {
-        if (player.Value == "Player1")
+        if (player.Name == Player1.Name)
         {
-            if (_getScoreBoard.Count == 1)
-            {
-                _getScoreBoard.Add("fifteen-love");
-            }
-            else if (_getScoreBoard.Count == 2)
-            {
-                _getScoreBoard.Add("thirty-love");
-            }
-            else
-            {
-                _getScoreBoard.Add("forty-love");
-            }
+            Player1.Score++;
         }
-        else if (player.Value == "Player2")
+        else if (player.Name == Player2.Name)
         {
-            if (_getScoreBoard.Count == 1)
-            {
-                _getScoreBoard.Add("love-fifteen");
-            }
-            else if (_getScoreBoard.Count == 2)
-            {
-                _getScoreBoard.Add("love-thirty");
-            }
-            else if (_getScoreBoard.Count == 3)
-            {
-                _getScoreBoard.Add("love-forty");
-            }
+            Player2.Score++;
         }
     }
 }
