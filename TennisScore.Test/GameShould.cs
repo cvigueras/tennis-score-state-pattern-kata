@@ -1,4 +1,5 @@
 using FluentAssertions;
+using TennisScore.Console;
 
 namespace TennisScore.Test
 {
@@ -14,17 +15,10 @@ namespace TennisScore.Test
         {
             var expectedResult = new List<string> {"love-love"};
 
-            var result = Game.GetScoreBoard();
+            var game = new Game();
+            var result = game.GetScoreBoard();
 
             result.Should().BeEquivalentTo(expectedResult);
-        }
-    }
-
-    public class Game
-    {
-        public static object GetScoreBoard()
-        {
-            return new List<string> { "love-love" };
         }
     }
 }
