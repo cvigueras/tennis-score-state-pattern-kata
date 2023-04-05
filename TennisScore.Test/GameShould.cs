@@ -6,9 +6,12 @@ namespace TennisScore.Test
 {
     public class GameShould
     {
+        private Game _game;
+
         [SetUp]
         public void Setup()
         {
+            _game = new Game();
         }
 
         [Test]
@@ -16,8 +19,7 @@ namespace TennisScore.Test
         {
             var expectedResult = new List<string> {"love-love"};
 
-            var game = new Game();
-            var result = game.GetScoreBoard();
+            var result = _game.GetScoreBoard();
 
             result.Should().BeEquivalentTo(expectedResult);
         }
@@ -30,10 +32,9 @@ namespace TennisScore.Test
                 {"fifteen-love"},
             };
 
-            var game = new Game();
-            game.WinPoint();
+            _game.WinPoint();
 
-            var result = game.GetScoreBoard();
+            var result = _game.GetScoreBoard();
 
             result.Should().BeEquivalentTo(expectedResult);
         }
@@ -47,11 +48,11 @@ namespace TennisScore.Test
                 {"thirty-love"},
             };
 
-            var game = new Game();
-            game.WinPoint();
-            game.WinPoint();
+            _game = new Game();
+            _game.WinPoint();
+            _game.WinPoint();
 
-            var result = game.GetScoreBoard();
+            var result = _game.GetScoreBoard();
 
             result.Should().BeEquivalentTo(expectedResult);
         }
