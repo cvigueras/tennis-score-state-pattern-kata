@@ -41,6 +41,10 @@ public class Game
             {
                 _getScoreBoard.Add("love-thirty");
             }
+            else if (_getScoreBoard.Count == 3)
+            {
+                _getScoreBoard.Add("love-forty");
+            }
         }
     }
 }
