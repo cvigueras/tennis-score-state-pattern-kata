@@ -115,5 +115,20 @@ namespace TennisScore.Test
             scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
             scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
         }
+
+        [Test]
+        public void add_fifteen_fifteen_to_score_board_when_player1_and_player2_win_first_point()
+        {
+            var expectedScorePlayer1 = Score.Fifteen;
+            var expectedScorePlayer2 = Score.Fifteen;
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);
+
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
+
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
+            scorePlayer2.Should().BeEquivalentTo(expectedScorePlayer2);
+        }
     }
 }
