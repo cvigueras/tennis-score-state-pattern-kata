@@ -8,6 +8,7 @@ public enum Score
     Thirty,
     Forty,
     Advantage,
+    Winner,
     Deuce,
     Game,
 }

@@ -4,16 +4,33 @@ public class Game
 {
     public readonly Player Player1;
     public readonly Player Player2;
+    private State _state = null;
 
-    private Game(string namePlayer1, string namePlayer2)
+    private Game(string namePlayer1, string namePlayer2, State state)
     {
         Player1 = Player.Create(namePlayer1);
         Player2 = Player.Create(namePlayer2);
+        TransitionTo(state);
     }
 
-    public static Game Create(string namePlayer1, string namePlayer2)
+    public void TransitionTo(State state)
     {
-        return new Game(namePlayer1,namePlayer2);
+        _state = state;
+        _state.SetContext(this);
+    }
+
+    public static Game Create(string namePlayer1, string namePlayer2, State state)
+    {
+        return new Game(namePlayer1, namePlayer2, state);
+    }
+    public void WinPoint(Player player)
+    {
+        _state.WinPoint(player);
+    }
+
+    public string GetScore()
+    {
+        return _state.GetScore();
     }
 
     public Enum GetScorePlayer1()
@@ -24,18 +41,6 @@ public class Game
     public Enum GetScorePlayer2()
     {
         return Player2.Score;
-    }
-
-    public void WinPoint(Player player)
-    {
-        if (player.Name == Player1.Name)
-        {
-            Player1.Score++;
-        }
-        else if (player.Name == Player2.Name)
-        {
-            Player2.Score++;
-        }
     }
 
     public Enum HasDeuce()
