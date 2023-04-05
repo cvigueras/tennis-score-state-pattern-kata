@@ -20,9 +20,13 @@ public class Game
         {
             _getScoreBoard.Add("fifteen-love");
         }
-        else
+        else if (_getScoreBoard.Count == 2)
         {
             _getScoreBoard.Add("thirty-love");
+        }
+        else
+        {
+            _getScoreBoard.Add("forty-love");
         }
     }
 }
