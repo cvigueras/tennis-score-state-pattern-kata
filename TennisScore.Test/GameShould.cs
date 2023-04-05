@@ -24,7 +24,7 @@ namespace TennisScore.Test
     {
         public static object GetScoreBoard()
         {
-            throw new NotImplementedException();
+            return new List<string> { "love-love" };
         }
     }
 }
