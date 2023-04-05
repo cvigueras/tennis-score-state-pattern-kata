@@ -10,7 +10,7 @@ namespace TennisScore.Test
         [SetUp]
         public void Setup()
         {
-            _game = new Game();
+            _game = Game.Create();
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace TennisScore.Test
                 {"thirty-love"},
             };
 
-            _game = new Game();
+            _game = Game.Create();
             _game.WinPoint(Player.Create("Player1"));
             _game.WinPoint(Player.Create("Player1"));
 
@@ -66,7 +66,7 @@ namespace TennisScore.Test
                 {"forty-love"},
             };
 
-            _game = new Game();
+            _game = Game.Create();
             _game.WinPoint(Player.Create("Player1"));
             _game.WinPoint(Player.Create("Player1"));
             _game.WinPoint(Player.Create("Player1"));

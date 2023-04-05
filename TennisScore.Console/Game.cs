@@ -4,9 +4,14 @@ public class Game
 {
     private readonly List<string> _getScoreBoard;
 
-    public Game()
+    private Game()
     {
         _getScoreBoard = new List<string> { "love-love" };
+    }
+
+    public static Game Create()
+    {
+        return new Game();
     }
 
     public List<string> GetScoreBoard()
