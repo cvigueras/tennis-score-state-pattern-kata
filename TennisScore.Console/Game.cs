@@ -14,19 +14,26 @@ public class Game
         return _getScoreBoard;
     }
 
-    public void WinPoint()
+    public void WinPoint(string player)
     {
-        if (_getScoreBoard.Count == 1)
+        if (player == "Player1")
         {
-            _getScoreBoard.Add("fifteen-love");
+            if (_getScoreBoard.Count == 1)
+            {
+                _getScoreBoard.Add("fifteen-love");
+            }
+            else if (_getScoreBoard.Count == 2)
+            {
+                _getScoreBoard.Add("thirty-love");
+            }
+            else
+            {
+                _getScoreBoard.Add("forty-love");
+            }
         }
-        else if (_getScoreBoard.Count == 2)
+        else if (player == "Player2")
         {
-            _getScoreBoard.Add("thirty-love");
-        }
-        else
-        {
-            _getScoreBoard.Add("forty-love");
+            _getScoreBoard.Add("love-fifteen");
         }
     }
 }
