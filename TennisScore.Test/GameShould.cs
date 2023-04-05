@@ -134,7 +134,7 @@ namespace TennisScore.Test
         [Test]
         public void get_deuce_when_player1_has_forty_and_player2_has_forty()
         {
-            var expectedScorePlayer1 = Score.Deuce;
+            var expectedScore = Score.Deuce;
             _game.WinPoint(_game.Player1);
             _game.WinPoint(_game.Player2);            
             _game.WinPoint(_game.Player1);
@@ -144,7 +144,26 @@ namespace TennisScore.Test
 
             var deuceScore = _game.HasDeuce();
 
-            deuceScore.Should().BeEquivalentTo(expectedScorePlayer1);
+            deuceScore.Should().BeEquivalentTo(expectedScore);
+        }
+
+        [Test]
+        public void get_advantage_for_player1_has_forty_and_win_point_and_player2_has_forty()
+        {
+            var expectedScorePlayer1 = Score.Advantage + " " + _game.Player1.Name;
+            
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);            
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);            
+            _game.WinPoint(_game.Player1);
+            _game.WinPoint(_game.Player2);
+            _game.WinPoint(_game.Player1);
+
+            var scorePlayer1 = _game.GetScorePlayer1();
+            var scorePlayer2 = _game.GetScorePlayer2();
+
+            scorePlayer1.Should().BeEquivalentTo(expectedScorePlayer1);
         }
     }
 }
