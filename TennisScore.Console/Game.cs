@@ -33,7 +33,14 @@ public class Game
         }
         else if (player == "Player2")
         {
-            _getScoreBoard.Add("love-fifteen");
+            if (_getScoreBoard.Count == 1)
+            {
+                _getScoreBoard.Add("love-fifteen");
+            }
+            else if (_getScoreBoard.Count == 2)
+            {
+                _getScoreBoard.Add("love-thirty");
+            }
         }
     }
 }
