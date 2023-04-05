@@ -1,5 +1,4 @@
 using FluentAssertions;
-using System.Xml.Linq;
 using TennisScore.Console;
 
 namespace TennisScore.Test
@@ -49,6 +48,26 @@ namespace TennisScore.Test
             };
 
             _game = new Game();
+            _game.WinPoint();
+            _game.WinPoint();
+
+            var result = _game.GetScoreBoard();
+
+            result.Should().BeEquivalentTo(expectedResult);
+        }
+
+        [Test]
+        public void add_forty_love_to_score_board_when_player1_win_third_point()
+        {
+            var expectedResult = new List<string>{
+                {"love-love"},
+                {"fifteen-love"},
+                {"thirty-love"},
+                {"forty-love"},
+            };
+
+            _game = new Game();
+            _game.WinPoint();
             _game.WinPoint();
             _game.WinPoint();
 
