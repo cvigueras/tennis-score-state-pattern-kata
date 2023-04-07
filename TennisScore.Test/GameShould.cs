@@ -10,7 +10,7 @@ namespace TennisScore.Test
         [SetUp]
         public void Setup()
         {
-            _game = Game.Create("Rafa Nadal","Carlos Alcaraz", new InitState());
+            _game = Game.Create("Rafa Nadal", "Carlos Alcaraz");
         }
 
         [Test]
